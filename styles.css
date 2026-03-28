@@ -41,28 +41,28 @@ body::before,
 body::after {
   content: "";
   position: fixed;
+  inset: -12% -8%;
   pointer-events: none;
   z-index: 0;
-  filter: blur(18px);
-  opacity: 0.42;
+  filter: blur(28px);
 }
 
 body::before {
-  top: -6%;
-  left: -6%;
-  width: 82vw;
-  height: 32vh;
-  background: radial-gradient(ellipse at center, rgba(183, 207, 254, 0.58) 0%, transparent 68%);
-  animation: float-wave-one 16s ease-in-out infinite alternate;
+  background:
+    radial-gradient(circle at 12% 18%, rgba(183, 207, 254, 0.42) 0%, transparent 18%),
+    radial-gradient(circle at 78% 14%, rgba(183, 207, 254, 0.34) 0%, transparent 16%),
+    radial-gradient(circle at 26% 72%, rgba(183, 207, 254, 0.28) 0%, transparent 18%),
+    radial-gradient(circle at 88% 82%, rgba(183, 207, 254, 0.24) 0%, transparent 16%);
+  animation: float-wave-one 22s ease-in-out infinite alternate;
 }
 
 body::after {
-  right: -10%;
-  bottom: 4%;
-  width: 74vw;
-  height: 26vh;
-  background: radial-gradient(ellipse at center, rgba(183, 207, 254, 0.48) 0%, transparent 72%);
-  animation: float-wave-two 20s ease-in-out infinite alternate;
+  background:
+    radial-gradient(circle at 42% 26%, rgba(183, 207, 254, 0.24) 0%, transparent 20%),
+    radial-gradient(circle at 62% 60%, rgba(183, 207, 254, 0.22) 0%, transparent 22%),
+    radial-gradient(circle at 8% 88%, rgba(183, 207, 254, 0.22) 0%, transparent 18%),
+    radial-gradient(circle at 94% 46%, rgba(183, 207, 254, 0.18) 0%, transparent 16%);
+  animation: float-wave-two 30s ease-in-out infinite alternate;
 }
 
 a {
@@ -407,7 +407,7 @@ code {
   }
 
   to {
-    transform: translate3d(10vw, 3vh, 0) scale(1.12);
+    transform: translate3d(3vw, -2vh, 0) scale(1.08);
   }
 }
 
@@ -417,7 +417,7 @@ code {
   }
 
   to {
-    transform: translate3d(-9vw, -2.5vh, 0) scale(1.1);
+    transform: translate3d(-4vw, 3vh, 0) scale(1.06);
   }
 }
 
