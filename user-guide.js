@@ -1,25 +1,22 @@
-// Ajoute, supprime ou modifie les blocs ci-dessous pour gérer tes vidéos et liens.
-const integrations = [
+// Modifie ce tableau pour ajouter ou retirer des tutos.
+const INTEGRATIONS = [
   {
     type: "video",
     title: "Commande /emotes",
-    description:
-      "Cette video explique le fonctionnement de la commande /emotes sans parametres.",
+    description: "Cette video explique le fonctionnement de la commande /emotes sans parametres.",
     src: "./videos/emotes.mp4",
     url: "./videos/emotes.mp4"
   },
   {
     type: "link",
     title: "Autre tuto",
-    description:
-      "Ajoute ici un deuxieme tuto quand tu auras une autre video.",
+    description: "Ajoute ici un deuxieme tuto quand tu auras une autre video.",
     url: ""
   },
   {
     type: "link",
-    title: "Documentation complémentaire",
-    description:
-      "Ajoute ici un lien vers ton règlement, ton wiki serveur, une FAQ ou une page de support.",
+    title: "Documentation complementaire",
+    description: "Ajoute ici un lien vers ton reglement, ton wiki serveur, une FAQ ou une page de support.",
     url: "https://discord.com/developers/docs/intro"
   }
 ];
@@ -30,6 +27,7 @@ function buildVideoPlayer(src, title) {
 
   video.controls = true;
   video.preload = "metadata";
+  video.playsInline = true;
   video.title = title;
 
   source.src = src;
@@ -39,8 +37,9 @@ function buildVideoPlayer(src, title) {
   return video;
 }
 
-function buildPlaceholder(label) {
+function buildMediaPlaceholder(label) {
   const container = document.createElement("div");
+  container.className = "tutorial-media-placeholder";
   container.textContent = label;
   return container;
 }
@@ -55,12 +54,12 @@ function renderIntegrations() {
 
   host.innerHTML = "";
 
-  if (integrations.length === 0) {
-    host.appendChild(buildPlaceholder("Aucune intégration configurée pour le moment."));
+  if (INTEGRATIONS.length === 0) {
+    host.appendChild(buildMediaPlaceholder("Aucune integration configuree pour le moment."));
     return;
   }
 
-  integrations.forEach((item) => {
+  INTEGRATIONS.forEach((item) => {
     const fragment = template.content.cloneNode(true);
     const media = fragment.querySelector(".tutorial-media");
     const title = fragment.querySelector("h3");
@@ -69,6 +68,7 @@ function renderIntegrations() {
 
     title.textContent = item.title;
     description.textContent = item.description;
+
     if (item.url) {
       link.href = item.url;
     } else {
@@ -78,7 +78,7 @@ function renderIntegrations() {
     if (item.type === "video" && item.src) {
       media.appendChild(buildVideoPlayer(item.src, item.title));
     } else {
-      media.appendChild(buildPlaceholder("Ajoute un média ou un lien"));
+      media.appendChild(buildMediaPlaceholder("Ajoute un media ou un lien"));
     }
 
     host.appendChild(fragment);
@@ -102,7 +102,7 @@ async function copyText(value, button) {
     }
 
     const previousLabel = button.textContent;
-    button.textContent = "Copié";
+    button.textContent = "Copie";
     button.classList.add("is-copied");
 
     window.setTimeout(() => {

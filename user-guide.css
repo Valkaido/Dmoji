@@ -2,6 +2,7 @@
   --bg: #f6f7f9;
   --surface: #ffffff;
   --surface-soft: #fafbfc;
+  --surface-muted: #eef2f6;
   --text: #1f2328;
   --muted: #59636e;
   --line: #d8dee4;
@@ -10,8 +11,6 @@
   --primary-dark: #0550ae;
   --danger-bg: #fff1f0;
   --danger-line: #f2c6c2;
-  --warning-bg: #fff8e6;
-  --warning-line: #ead18b;
   --radius: 12px;
   --font: Arial, Helvetica, sans-serif;
   --max-width: 1120px;
@@ -35,6 +34,46 @@ body {
 
 a {
   color: var(--primary-dark);
+}
+
+p {
+  margin: 0;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0;
+  line-height: 1.25;
+}
+
+h1 {
+  font-size: 2rem;
+}
+
+h2 {
+  font-size: 1.4rem;
+}
+
+h3 {
+  font-size: 1.05rem;
+}
+
+ul {
+  margin: 12px 0;
+  padding-left: 20px;
+}
+
+li + li {
+  margin-top: 6px;
+}
+
+code {
+  padding: 2px 6px;
+  border-radius: 6px;
+  background: var(--surface-muted);
+  font-family: Consolas, "Courier New", monospace;
+  font-size: 0.95em;
 }
 
 .page-shell {
@@ -61,11 +100,8 @@ a {
 .brand {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
   color: var(--text);
   text-decoration: none;
-  font-size: 1.1rem;
-  font-weight: 700;
 }
 
 .brand-logo {
@@ -81,7 +117,8 @@ a {
   gap: 16px;
 }
 
-.topbar-links a {
+.topbar-links a,
+.integration-link {
   color: var(--muted);
   text-decoration: none;
   font-weight: 700;
@@ -169,90 +206,39 @@ a {
   text-transform: uppercase;
 }
 
-h1,
-h2,
-h3 {
-  margin: 0;
-  line-height: 1.25;
-}
-
-p {
-  margin: 0;
-}
-
-h1 {
-  font-size: 2rem;
-}
-
-h2 {
-  font-size: 1.4rem;
-}
-
-h3 {
-  font-size: 1.05rem;
-}
-
-.lead,
-.doc-section > p,
-.command-block p,
-.tutorial-body p {
-  color: var(--muted);
-}
-
 .doc-section {
   padding-top: 24px;
 }
 
 .doc-section + .doc-section {
-  border-top: 1px solid var(--line);
   margin-top: 24px;
+  border-top: 1px solid var(--line);
 }
 
 .doc-section > * + * {
   margin-top: 14px;
 }
 
-.doc-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 16px;
-  margin-top: 20px;
+.doc-section > p,
+.command-block p,
+.tutorial-body p {
+  color: var(--muted);
 }
 
-.doc-card,
+.example-list,
+.commands-grid,
+.integration-list {
+  display: grid;
+  gap: 16px;
+  margin-top: 14px;
+}
+
+.example-item,
 .command-block {
-  padding: 18px;
+  padding: 16px 18px;
   background: var(--surface-soft);
   border: 1px solid var(--line);
   border-radius: 10px;
-}
-
-.doc-card h3,
-.command-block h3 {
-  margin-bottom: 10px;
-}
-
-ul {
-  margin: 12px 0;
-  padding-left: 20px;
-}
-
-li + li {
-  margin-top: 6px;
-}
-
-code {
-  padding: 2px 6px;
-  border-radius: 6px;
-  background: #eef2f6;
-  font-family: Consolas, "Courier New", monospace;
-  font-size: 0.95em;
-}
-
-.example-list {
-  display: grid;
-  gap: 10px;
-  margin-top: 14px;
 }
 
 .example-item {
@@ -260,38 +246,11 @@ code {
   flex-wrap: wrap;
   gap: 10px;
   align-items: center;
-  padding: 12px 14px;
-  background: var(--surface-soft);
-  border: 1px solid var(--line);
-  border-radius: 10px;
 }
 
 .example-item-danger {
   background: var(--danger-bg);
   border-color: var(--danger-line);
-}
-
-.warning-box {
-  margin-top: 14px;
-  padding: 14px 16px;
-  background: var(--warning-bg);
-  border: 1px solid var(--warning-line);
-  border-radius: 10px;
-}
-
-.warning-box strong {
-  display: block;
-  margin-bottom: 6px;
-}
-
-.warning-box p {
-  margin: 0;
-}
-
-.commands-grid {
-  display: grid;
-  gap: 16px;
-  margin-top: 14px;
 }
 
 .command-head {
@@ -330,11 +289,6 @@ code {
   border-color: var(--primary-dark);
 }
 
-.integration-list {
-  display: grid;
-  gap: 16px;
-}
-
 .tutorial-item {
   display: grid;
   grid-template-columns: minmax(260px, 360px) minmax(0, 1fr);
@@ -351,7 +305,7 @@ code {
 .tutorial-media {
   width: 100%;
   aspect-ratio: 16 / 9;
-  background: #edf1f5;
+  background: var(--surface-muted);
   border: 1px solid var(--line);
   border-radius: 10px;
   overflow: hidden;
@@ -359,22 +313,29 @@ code {
   place-items: center;
 }
 
-.tutorial-media iframe,
 .tutorial-media video {
   width: 100%;
   height: 100%;
   border: 0;
 }
 
-.tutorial-body h3 {
-  margin: 10px 0 8px;
+.tutorial-media-placeholder {
+  display: grid;
+  width: 100%;
+  height: 100%;
+  place-items: center;
+  padding: 16px;
+  color: var(--muted);
+  text-align: center;
+  font-weight: 700;
 }
 
-.integration-link {
-  display: inline-block;
-  margin-top: 8px;
-  text-decoration: none;
-  font-weight: 700;
+.tutorial-body h3 {
+  margin-bottom: 8px;
+}
+
+.tutorial-body > * + * {
+  margin-top: 10px;
 }
 
 @media (max-width: 900px) {
@@ -386,7 +347,6 @@ code {
     position: static;
   }
 
-  .doc-grid,
   .tutorial-item {
     grid-template-columns: 1fr;
   }

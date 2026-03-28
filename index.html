@@ -15,7 +15,7 @@
     <div class="page-shell">
       <header class="site-header" id="top">
         <div class="site-header-row">
-          <a class="brand" href="#top">
+          <a class="brand" href="#top" aria-label="Retour en haut">
             <img class="brand-logo" src="./logo.png" alt="Logo du bot" />
           </a>
           <nav class="topbar-links" aria-label="Navigation principale">
@@ -29,7 +29,7 @@
         <aside class="toc" aria-label="Sommaire">
           <div class="toc-box">
             <p class="toc-title">Sommaire</p>
-            <a href="#ecrire">Comment ecrire une emote</a>
+            <a href="#ecrire">Comment &#233;crire une &#233;mote</a>
             <a href="#fonctionne">Ce qui fonctionne</a>
             <a href="#bloque">Ce qui bloque le bot</a>
             <a href="#commandes">Commandes utiles</a>
@@ -45,7 +45,7 @@
             </header>
 
             <section class="doc-section" id="ecrire" aria-labelledby="ecrire-title">
-              <h2 id="ecrire-title">Comment ecrire une emote</h2>
+              <h2 id="ecrire-title">Comment &#233;crire une &#233;mote</h2>
               <p>Tu peux utiliser l'un de ces formats :</p>
               <ul>
                 <li><code>/KEKW</code></li>
@@ -55,18 +55,18 @@
                 <li><code>/KEKW:4x</code></li>
               </ul>
               <p>
-                Tu peux aussi ecrire du texte normal dans le meme message, par
-                exemple <code>Salut /KEKW</code>.
+                Tu peux aussi &#233;crire du texte normal dans le m&#234;me message,
+                par exemple <code>Salut /KEKW</code>.
               </p>
             </section>
 
             <section class="doc-section" id="fonctionne" aria-labelledby="fonctionne-title">
               <h2 id="fonctionne-title">Ce qui fonctionne</h2>
               <ul>
-                <li>tu envoies une emote seule, comme <code>/KEKW</code></li>
+                <li>tu envoies une &#233;mote seule, comme <code>/KEKW</code></li>
                 <li>tu choisis une taille, comme <code>/KEKW:4x</code></li>
-                <li>tu mets plusieurs emotes dans le meme message</li>
-                <li>tu ecris du texte et des emotes dans le meme message</li>
+                <li>tu mets plusieurs &#233;motes dans le m&#234;me message</li>
+                <li>tu &#233;cris du texte et des &#233;motes dans le m&#234;me message</li>
               </ul>
 
               <div class="example-list">
@@ -104,22 +104,22 @@
               <h2 id="commandes-title">Commandes utiles</h2>
 
               <div class="commands-grid">
-                <div class="command-block">
-                <div class="command-head">
-                  <h3>/emotes</h3>
-                  <button class="copy-button" type="button" data-copy="/emotes">
-                    Copier
-                  </button>
-                </div>
+                <article class="command-block">
+                  <div class="command-head">
+                    <h3>/emotes</h3>
+                    <button class="copy-button" type="button" data-copy="/emotes">
+                      Copier
+                    </button>
+                  </div>
                   <ul>
-                    <li>voir les emotes disponibles</li>
-                    <li>chercher une emote par son nom</li>
-                    <li>previsualiser une emote</li>
-                    <li>envoyer directement l'emote choisie</li>
+                    <li>voir les &#233;motes disponibles</li>
+                    <li>chercher une &#233;mote par son nom</li>
+                    <li>pr&#233;visualiser une &#233;mote</li>
+                    <li>envoyer directement l'&#233;mote choisie</li>
                   </ul>
-                </div>
+                </article>
 
-                <div class="command-block">
+                <article class="command-block">
                   <div class="command-head">
                     <h3>/emotes &lt;nom&gt; &lt;taille&gt; &lt;texte&gt;</h3>
                     <button
@@ -131,29 +131,33 @@
                     </button>
                   </div>
                   <ul>
-                    <li><code>nom</code> pour choisir l'emote</li>
+                    <li><code>nom</code> pour choisir l'&#233;mote</li>
                     <li><code>taille</code> pour choisir sa taille</li>
-                    <li><code>texte</code> pour ajouter un message avec l'emote</li>
+                    <li><code>texte</code> pour ajouter un message avec l'&#233;mote</li>
                   </ul>
                   <p>
                     Exemple :
                     <code>/emotes nom:KEKW taille:4x texte:Salut</code>
                   </p>
-                </div>
+                </article>
 
-                <div class="command-block">
+                <article class="command-block">
                   <div class="command-head">
-                    <h3>/info</h3>
-                    <button class="copy-button" type="button" data-copy="/info message_id:1234567890">
+                    <h3>/info &lt;message_id&gt;</h3>
+                    <button
+                      class="copy-button"
+                      type="button"
+                      data-copy="/info message_id:1234567890"
+                    >
                       Copier
                     </button>
                   </div>
                   <p>
-                    Cette commande sert a retrouver l'emote utilisee sur un message
-                    deja renvoye par le bot.
+                    Cette commande sert &#224; retrouver l'&#233;mote utilis&#233;e
+                    sur un message d&#233;j&#224; renvoy&#233; par le bot.
                   </p>
                   <p>Exemple : <code>/info message_id:1234567890</code></p>
-                </div>
+                </article>
               </div>
             </section>
           </article>
