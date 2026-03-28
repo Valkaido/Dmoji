@@ -355,10 +355,11 @@ code {
 
 .example-media {
   display: block;
-  width: 100%;
+  width: min(100%, 260px);
   border-radius: 10px;
   border: 1px solid var(--line);
   background: var(--surface);
+  justify-self: start;
 }
 
 .command-head {
