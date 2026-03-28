@@ -4,11 +4,12 @@
   --surface-soft: #fafbfc;
   --surface-muted: #eef2f6;
   --accent-soft: #b7cffecf;
-  --accent-line: #b7cffecf;
   --text: #1f2328;
   --muted: #59636e;
   --line: #d8dee4;
   --line-strong: #c7d0d9;
+  --panel-hover-bg: #fcfcfd;
+  --panel-hover-line: #d4d7dc;
   --primary: #0969da;
   --primary-dark: #0550ae;
   --danger-bg: #fff1f0;
@@ -16,7 +17,8 @@
   --radius: 12px;
   --font: Arial, Helvetica, sans-serif;
   --max-width: 1120px;
-  --shadow-soft: 0 10px 28px rgba(183, 207, 254, 0.18);
+  --shadow-soft: 0 10px 28px rgba(183, 207, 254, 0.1);
+  --shadow-panel: 0 8px 22px rgba(15, 23, 42, 0.04);
 }
 
 * {
@@ -28,13 +30,41 @@ html {
 }
 
 body {
+  position: relative;
   margin: 0;
-  background:
-    radial-gradient(circle at top right, var(--accent-soft), transparent 24%),
-    linear-gradient(180deg, #fbfcff 0%, var(--bg) 100%);
+  background: linear-gradient(180deg, #fbfcff 0%, var(--bg) 100%);
   color: var(--text);
   font-family: var(--font);
   line-height: 1.6;
+  overflow-x: hidden;
+}
+
+body::before,
+body::after {
+  content: "";
+  position: fixed;
+  pointer-events: none;
+  z-index: 0;
+  filter: blur(26px);
+  opacity: 0.28;
+}
+
+body::before {
+  top: -8%;
+  left: -10%;
+  width: 68vw;
+  height: 28vh;
+  background: radial-gradient(ellipse at center, var(--accent-soft) 0%, transparent 68%);
+  animation: float-wave-one 20s ease-in-out infinite alternate;
+}
+
+body::after {
+  right: -12%;
+  bottom: 10%;
+  width: 60vw;
+  height: 24vh;
+  background: radial-gradient(ellipse at center, var(--accent-soft) 0%, transparent 72%);
+  animation: float-wave-two 26s ease-in-out infinite alternate;
 }
 
 a {
@@ -82,6 +112,8 @@ code {
 }
 
 .page-shell {
+  position: relative;
+  z-index: 1;
   width: min(calc(100% - 32px), var(--max-width));
   margin: 0 auto;
   padding: 24px 0 40px;
@@ -98,7 +130,7 @@ code {
   gap: 16px;
   padding: 14px 18px;
   background: linear-gradient(180deg, #ffffff, #fbfdff);
-  border: 1px solid var(--accent-line);
+  border: 1px solid rgba(183, 207, 254, 0.55);
   border-radius: var(--radius);
   box-shadow: var(--shadow-soft);
   animation: fade-up 360ms ease-out both;
@@ -157,8 +189,21 @@ code {
   background: var(--surface);
   border: 1px solid var(--line);
   border-radius: var(--radius);
-  box-shadow: var(--shadow-soft);
+  box-shadow: var(--shadow-panel);
   animation: fade-up 420ms ease-out both;
+  transition:
+    background-color 180ms ease,
+    border-color 180ms ease,
+    box-shadow 180ms ease,
+    transform 180ms ease;
+}
+
+.toc-box:hover,
+.doc-panel:hover {
+  background: linear-gradient(180deg, #ffffff, var(--panel-hover-bg));
+  border-color: var(--panel-hover-line);
+  box-shadow: 0 14px 32px rgba(255, 255, 255, 0.88), 0 8px 20px rgba(15, 23, 42, 0.05);
+  transform: translateY(-1px);
 }
 
 .toc-box {
@@ -254,6 +299,7 @@ code {
   border: 1px solid var(--line);
   border-radius: 10px;
   transition:
+    background-color 160ms ease,
     border-color 160ms ease,
     box-shadow 160ms ease,
     transform 160ms ease;
@@ -274,8 +320,9 @@ code {
 .example-item:hover,
 .command-block:hover,
 .tutorial-item:hover {
-  border-color: var(--accent-line);
-  box-shadow: 0 6px 20px var(--accent-soft);
+  background: linear-gradient(180deg, #ffffff, var(--panel-hover-bg));
+  border-color: var(--panel-hover-line);
+  box-shadow: 0 8px 22px rgba(255, 255, 255, 0.92), 0 6px 18px rgba(15, 23, 42, 0.05);
 }
 
 .command-head {
@@ -310,7 +357,8 @@ code {
 
 .copy-button:hover,
 .copy-button:focus-visible {
-  border-color: var(--accent-line);
+  background: #ffffff;
+  border-color: var(--panel-hover-line);
   transform: translateY(-1px);
 }
 
@@ -327,6 +375,7 @@ code {
   padding-top: 20px;
   border-top: 1px solid var(--line);
   transition:
+    background-color 160ms ease,
     border-color 160ms ease,
     box-shadow 160ms ease;
 }
@@ -339,8 +388,8 @@ code {
 .tutorial-media {
   width: 100%;
   aspect-ratio: 16 / 9;
-  background: linear-gradient(180deg, #f4f8ff, var(--surface-muted));
-  border: 1px solid var(--accent-line);
+  background: linear-gradient(180deg, #f9fbfe, var(--surface-muted));
+  border: 1px solid rgba(183, 207, 254, 0.55);
   border-radius: 10px;
   overflow: hidden;
   display: grid;
@@ -381,6 +430,26 @@ code {
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+@keyframes float-wave-one {
+  from {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+
+  to {
+    transform: translate3d(7vw, 2.5vh, 0) scale(1.08);
+  }
+}
+
+@keyframes float-wave-two {
+  from {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+
+  to {
+    transform: translate3d(-6vw, -2vh, 0) scale(1.06);
   }
 }
 
