@@ -8,8 +8,6 @@
   --muted: #59636e;
   --line: #d8dee4;
   --line-strong: #c7d0d9;
-  --panel-hover-bg: #fcfcfd;
-  --panel-hover-line: #d4d7dc;
   --primary: #0969da;
   --primary-dark: #0550ae;
   --danger-bg: #fff1f0;
@@ -17,7 +15,7 @@
   --radius: 12px;
   --font: Arial, Helvetica, sans-serif;
   --max-width: 1120px;
-  --shadow-soft: 0 10px 28px rgba(183, 207, 254, 0.1);
+  --shadow-soft: 0 10px 28px rgba(183, 207, 254, 0.12);
   --shadow-panel: 0 8px 22px rgba(15, 23, 42, 0.04);
 }
 
@@ -45,26 +43,26 @@ body::after {
   position: fixed;
   pointer-events: none;
   z-index: 0;
-  filter: blur(26px);
-  opacity: 0.28;
+  filter: blur(18px);
+  opacity: 0.42;
 }
 
 body::before {
-  top: -8%;
-  left: -10%;
-  width: 68vw;
-  height: 28vh;
-  background: radial-gradient(ellipse at center, var(--accent-soft) 0%, transparent 68%);
-  animation: float-wave-one 20s ease-in-out infinite alternate;
+  top: -6%;
+  left: -6%;
+  width: 82vw;
+  height: 32vh;
+  background: radial-gradient(ellipse at center, rgba(183, 207, 254, 0.58) 0%, transparent 68%);
+  animation: float-wave-one 16s ease-in-out infinite alternate;
 }
 
 body::after {
-  right: -12%;
-  bottom: 10%;
-  width: 60vw;
-  height: 24vh;
-  background: radial-gradient(ellipse at center, var(--accent-soft) 0%, transparent 72%);
-  animation: float-wave-two 26s ease-in-out infinite alternate;
+  right: -10%;
+  bottom: 4%;
+  width: 74vw;
+  height: 26vh;
+  background: radial-gradient(ellipse at center, rgba(183, 207, 254, 0.48) 0%, transparent 72%);
+  animation: float-wave-two 20s ease-in-out infinite alternate;
 }
 
 a {
@@ -191,19 +189,6 @@ code {
   border-radius: var(--radius);
   box-shadow: var(--shadow-panel);
   animation: fade-up 420ms ease-out both;
-  transition:
-    background-color 180ms ease,
-    border-color 180ms ease,
-    box-shadow 180ms ease,
-    transform 180ms ease;
-}
-
-.toc-box:hover,
-.doc-panel:hover {
-  background: linear-gradient(180deg, #ffffff, var(--panel-hover-bg));
-  border-color: var(--panel-hover-line);
-  box-shadow: 0 14px 32px rgba(255, 255, 255, 0.88), 0 8px 20px rgba(15, 23, 42, 0.05);
-  transform: translateY(-1px);
 }
 
 .toc-box {
@@ -298,11 +283,6 @@ code {
   background: var(--surface-soft);
   border: 1px solid var(--line);
   border-radius: 10px;
-  transition:
-    background-color 160ms ease,
-    border-color 160ms ease,
-    box-shadow 160ms ease,
-    transform 160ms ease;
 }
 
 .example-item {
@@ -315,14 +295,6 @@ code {
 .example-item-danger {
   background: var(--danger-bg);
   border-color: var(--danger-line);
-}
-
-.example-item:hover,
-.command-block:hover,
-.tutorial-item:hover {
-  background: linear-gradient(180deg, #ffffff, var(--panel-hover-bg));
-  border-color: var(--panel-hover-line);
-  box-shadow: 0 8px 22px rgba(255, 255, 255, 0.92), 0 6px 18px rgba(15, 23, 42, 0.05);
 }
 
 .command-head {
@@ -358,7 +330,7 @@ code {
 .copy-button:hover,
 .copy-button:focus-visible {
   background: #ffffff;
-  border-color: var(--panel-hover-line);
+  border-color: rgba(183, 207, 254, 0.65);
   transform: translateY(-1px);
 }
 
@@ -374,10 +346,6 @@ code {
   gap: 18px;
   padding-top: 20px;
   border-top: 1px solid var(--line);
-  transition:
-    background-color 160ms ease,
-    border-color 160ms ease,
-    box-shadow 160ms ease;
 }
 
 .tutorial-item:first-child {
@@ -439,7 +407,7 @@ code {
   }
 
   to {
-    transform: translate3d(7vw, 2.5vh, 0) scale(1.08);
+    transform: translate3d(10vw, 3vh, 0) scale(1.12);
   }
 }
 
@@ -449,7 +417,7 @@ code {
   }
 
   to {
-    transform: translate3d(-6vw, -2vh, 0) scale(1.06);
+    transform: translate3d(-9vw, -2.5vh, 0) scale(1.1);
   }
 }
 
