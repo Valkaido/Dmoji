@@ -26,11 +26,31 @@
 
       <main class="layout">
         <aside class="toc" aria-label="Sommaire">
-          <div class="toc-box">
-            <p class="toc-title">Sommaire</p>
-            <a href="#ecrire">Tu peux utiliser l'un de ces formats</a>
-            <a href="#bloque">Ce qui bloque le bot</a>
-            <a href="#commandes">Commandes</a>
+          <div class="toc-stack">
+            <div class="toc-box">
+              <p class="toc-title">Sommaire</p>
+              <a href="#ecrire">Usages</a>
+              <a href="#commandes">Commandes</a>
+            </div>
+
+            <div class="toc-box toc-box-danger" aria-labelledby="limits-title">
+              <p class="toc-title" id="limits-title">Restrictions</p>
+              <p class="toc-box-note">Dans ces cas-l&#224;, le bot ne renvoie rien.</p>
+              <div class="toc-danger-list">
+                <div class="toc-danger-item">
+                  <code>/EMOTE_INCONNUE</code>
+                </div>
+                <div class="toc-danger-item">
+                  <code>Salut /KEKW /EMOTE_INCONNUE</code>
+                </div>
+                <div class="toc-danger-item">
+                  <span>Message avec une image ou un fichier joint</span>
+                </div>
+                <div class="toc-danger-item">
+                  <span><code>/emotes &lt;nom&gt; &lt;taille&gt; &lt;texte&gt;</code> ne rattache pas le message &#224; l'utilisateur auquel tu voulais r&#233;pondre</span>
+                </div>
+              </div>
+            </div>
           </div>
         </aside>
 
@@ -42,7 +62,7 @@
             </header>
 
             <section class="doc-section" id="ecrire" aria-labelledby="ecrire-title">
-              <h2 id="ecrire-title">Tu peux utiliser l'un de ces formats</h2>
+              <h2 id="ecrire-title">Usages</h2>
               <div class="example-list example-list-split">
                 <div class="example-item">
                   <div class="example-body">
@@ -55,12 +75,9 @@
                     alt="Exemple des tailles KEKW de 1x a 4x"
                   />
                 </div>
-              </div>
-              <div class="example-list">
                 <div class="example-item">
                   <div class="example-body">
                     <strong>Cas d'utilisation en r&#233;ponse &#224; un utilisateur</strong>
-                    <div><code>/Clap</code></div>
                   </div>
                   <video
                     class="example-media example-media-large"
@@ -73,24 +90,6 @@
                   >
                     <source src="./assets/reply.mp4" type="video/mp4" />
                   </video>
-                </div>
-              </div>
-            </section>
-
-            <section class="doc-section" id="bloque" aria-labelledby="bloque-title">
-              <h2 id="bloque-title">Ce qui bloque le bot</h2>
-              <div class="example-list">
-                <div class="example-item example-item-danger">
-                  <code>/EMOTE_INCONNUE</code>
-                </div>
-                <div class="example-item example-item-danger">
-                  <code>Salut /KEKW /EMOTE_INCONNUE</code>
-                </div>
-                <div class="example-item example-item-danger">
-                  <span>Message avec une image ou un fichier joint</span>
-                </div>
-                <div class="example-item example-item-danger">
-                  <span><code>/emotes &lt;nom&gt; &lt;taille&gt; &lt;texte&gt;</code> ne rattache pas le message &#224; l'utilisateur auquel tu voulais r&#233;pondre</span>
                 </div>
               </div>
             </section>
