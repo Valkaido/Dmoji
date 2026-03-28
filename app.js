@@ -26,6 +26,8 @@ const INTEGRATIONS = [
   }
 ];
 
+const THEME_STORAGE_KEY = "dmoji-theme";
+
 function buildVideoPlayer(src, title) {
   const video = document.createElement("video");
   const source = document.createElement("source");
@@ -97,6 +99,44 @@ function renderIntegrations() {
   });
 }
 
+function applyTheme(theme) {
+  const root = document.documentElement;
+  const toggle = document.getElementById("theme-toggle");
+  const isDark = theme === "dark";
+
+  root.dataset.theme = isDark ? "dark" : "light";
+
+  if (toggle) {
+    toggle.textContent = isDark ? "Theme clair" : "Theme sombre";
+    toggle.setAttribute("aria-pressed", String(isDark));
+  }
+}
+
+function initializeThemeToggle() {
+  const toggle = document.getElementById("theme-toggle");
+
+  if (!toggle) {
+    return;
+  }
+
+  const storedTheme = window.localStorage.getItem(THEME_STORAGE_KEY);
+  const preferredDark =
+    window.matchMedia &&
+    window.matchMedia("(prefers-color-scheme: dark)").matches;
+  const initialTheme = storedTheme || (preferredDark ? "dark" : "light");
+
+  applyTheme(initialTheme);
+
+  toggle.addEventListener("click", () => {
+    const nextTheme =
+      document.documentElement.dataset.theme === "dark" ? "light" : "dark";
+
+    window.localStorage.setItem(THEME_STORAGE_KEY, nextTheme);
+    applyTheme(nextTheme);
+  });
+}
+
 document.addEventListener("DOMContentLoaded", () => {
+  initializeThemeToggle();
   renderIntegrations();
 });

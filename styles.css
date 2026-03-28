@@ -19,6 +19,24 @@
   --shadow-panel: 0 8px 22px rgba(15, 23, 42, 0.04);
 }
 
+:root[data-theme="dark"] {
+  --bg: #0f141d;
+  --surface: #151c27;
+  --surface-soft: #1b2431;
+  --surface-muted: #243041;
+  --accent-soft: rgba(183, 207, 254, 0.22);
+  --text: #eef4ff;
+  --muted: #aeb9c8;
+  --line: #2b3748;
+  --line-strong: #43516a;
+  --primary: #8bb7ff;
+  --primary-dark: #b7cffecf;
+  --danger-bg: #2d1719;
+  --danger-line: #633339;
+  --shadow-soft: 0 16px 40px rgba(0, 0, 0, 0.28);
+  --shadow-panel: 0 16px 34px rgba(0, 0, 0, 0.2);
+}
+
 * {
   box-sizing: border-box;
 }
@@ -141,6 +159,12 @@ code {
   text-decoration: none;
 }
 
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
 .brand-logo {
   width: 130px;
   height: auto;
@@ -152,6 +176,31 @@ code {
   display: flex;
   flex-wrap: wrap;
   gap: 16px;
+}
+
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 38px;
+  padding: 0 14px;
+  border: 1px solid var(--line-strong);
+  border-radius: 8px;
+  background: var(--surface);
+  color: var(--text);
+  font-weight: 700;
+  cursor: pointer;
+  transition:
+    border-color 160ms ease,
+    background-color 160ms ease,
+    color 160ms ease,
+    transform 160ms ease;
+}
+
+.theme-toggle:hover,
+.theme-toggle:focus-visible {
+  border-color: rgba(183, 207, 254, 0.65);
+  transform: translateY(-1px);
 }
 
 .topbar-links a,
@@ -275,6 +324,38 @@ code {
   display: grid;
   gap: 16px;
   margin-top: 14px;
+}
+
+.media-showcase {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.media-showcase-compact {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.media-card {
+  margin: 0;
+  padding: 14px;
+  background: var(--surface-soft);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  box-shadow: var(--shadow-panel);
+}
+
+.media-card img,
+.media-card video {
+  display: block;
+  width: 100%;
+  border-radius: 10px;
+}
+
+.media-card figcaption {
+  margin-top: 10px;
+  color: var(--muted);
 }
 
 .example-item,
@@ -427,6 +508,11 @@ code {
   .tutorial-item {
     grid-template-columns: 1fr;
   }
+
+  .media-showcase,
+  .media-showcase-compact {
+    grid-template-columns: 1fr 1fr;
+  }
 }
 
 @media (max-width: 640px) {
@@ -438,6 +524,17 @@ code {
   .command-head {
     flex-direction: column;
     align-items: flex-start;
+  }
+
+  .header-actions {
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .media-showcase,
+  .media-showcase-compact {
+    grid-template-columns: 1fr;
   }
 
   .brand-logo {

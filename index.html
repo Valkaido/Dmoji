@@ -18,10 +18,15 @@
           <a class="brand" href="#top" aria-label="Retour en haut">
             <img class="brand-logo" src="./assets/logo.png" alt="Logo du bot" />
           </a>
-          <nav class="topbar-links" aria-label="Navigation principale">
-            <a href="#documentation">Documentation</a>
-            <a href="#integrations">Tutoriels</a>
-          </nav>
+          <div class="header-actions">
+            <nav class="topbar-links" aria-label="Navigation principale">
+              <a href="#documentation">Documentation</a>
+              <a href="#integrations">Tutoriels</a>
+            </nav>
+            <button class="theme-toggle" type="button" id="theme-toggle" aria-pressed="false">
+              Theme sombre
+            </button>
+          </div>
         </div>
       </header>
 
@@ -58,6 +63,24 @@
                 Tu peux aussi &#233;crire du texte normal dans le m&#234;me message,
                 par exemple <code>Salut /KEKW</code>.
               </p>
+              <div class="media-showcase media-showcase-compact">
+                <figure class="media-card">
+                  <img src="./assets/exemple_kekw1x.png" alt="Exemple KEKW en 1x" />
+                  <figcaption><code>/KEKW:1x</code></figcaption>
+                </figure>
+                <figure class="media-card">
+                  <img src="./assets/exemple_kekw2x.png" alt="Exemple KEKW en 2x" />
+                  <figcaption><code>/KEKW</code> ou <code>/KEKW:2x</code></figcaption>
+                </figure>
+                <figure class="media-card">
+                  <img src="./assets/exemple_kekw3x.png" alt="Exemple KEKW en 3x" />
+                  <figcaption><code>/KEKW:3x</code></figcaption>
+                </figure>
+                <figure class="media-card">
+                  <img src="./assets/exemple_kekw4x.png" alt="Exemple KEKW en 4x" />
+                  <figcaption><code>/KEKW:4x</code></figcaption>
+                </figure>
+              </div>
             </section>
 
             <section class="doc-section" id="fonctionne" aria-labelledby="fonctionne-title">
@@ -71,26 +94,42 @@
 
               <div class="example-list">
                 <div class="example-item">
-                  <code>/KEKW</code>
+                  <span><code>/KEKW</code> affiche l'image 2x</span>
                 </div>
                 <div class="example-item">
-                  <code>Bonjour /KEKW</code>
+                  <span><code>Bonjour /KEKW</code></span>
                 </div>
                 <div class="example-item">
-                  <code>Salut /KEKW /OMEGALUL</code>
+                  <span><code>Salut /KEKW /OMEGALUL</code></span>
                 </div>
                 <div class="example-item">
-                  <code>/CATJAM:4x</code>
+                  <span><code>/catJAM:4x</code></span>
                 </div>
+              </div>
+              <div class="media-showcase">
+                <figure class="media-card">
+                  <img src="./assets/exemple_bonjour.png" alt="Exemple Bonjour KEKW" />
+                  <figcaption><code>Bonjour /KEKW</code></figcaption>
+                </figure>
+                <figure class="media-card">
+                  <img src="./assets/exemple_omegalul_kekw.png" alt="Exemple Salut KEKW OMEGALUL" />
+                  <figcaption><code>Salut /KEKW /OMEGALUL</code></figcaption>
+                </figure>
+                <figure class="media-card media-card-video">
+                  <video controls preload="metadata" playsinline title="Exemple catJAM 4x">
+                    <source src="./assets/catjam4x.mp4" type="video/mp4" />
+                  </video>
+                  <figcaption><code>/catJAM:4x</code></figcaption>
+                </figure>
               </div>
             </section>
 
             <section class="doc-section" id="bloque" aria-labelledby="bloque-title">
               <h2 id="bloque-title">Ce qui bloque le bot</h2>
               <p>
-                La commande <code>/emotes</code> envoie simplement l'&#233;mote dans
-                le salon. Elle ne se comporte pas comme une r&#233;ponse &#224; un
-                message pr&#233;cis d'un utilisateur.
+                La commande <code>/emotes &lt;nom&gt; &lt;taille&gt; &lt;texte&gt;</code>
+                envoie un nouveau message dans le salon. Elle ne se comporte pas
+                comme une r&#233;ponse native &#224; un message pr&#233;cis d'un utilisateur.
               </p>
               <div class="example-list">
                 <div class="example-item example-item-danger">
@@ -103,7 +142,7 @@
                   <span>Message avec une image ou un fichier joint</span>
                 </div>
                 <div class="example-item example-item-danger">
-                  <span>Utiliser <code>/emotes</code> si tu veux r&#233;pondre directement &#224; quelqu'un</span>
+                  <span><code>/emotes &lt;nom&gt; &lt;taille&gt; &lt;texte&gt;</code> ne rattache pas le message &#224; l'utilisateur auquel tu voulais r&#233;pondre</span>
                 </div>
               </div>
             </section>
