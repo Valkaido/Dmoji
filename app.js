@@ -23,12 +23,6 @@ const INTEGRATIONS = [
     description: "Cette video explique le fonctionnement de la commande /info.",
     src: "./videos/info.mp4",
     url: "./videos/info.mp4"
-  },
-  {
-    type: "link",
-    title: "Documentation complementaire",
-    description: "Ajoute ici un lien vers ton reglement, ton wiki serveur, une FAQ ou une page de support.",
-    url: "https://discord.com/developers/docs/intro"
   }
 ];
 
