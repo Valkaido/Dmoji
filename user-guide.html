@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Documentation simple pour comprendre comment utiliser &#208;moji."
+    />
+    <title>&#208;moji | Documentation</title>
+    <link rel="icon" type="image/png" href="./logo_small.png" />
+    <link rel="stylesheet" href="./user-guide.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="site-header" id="top">
+        <div class="site-header-row">
+          <a class="brand" href="#top">
+            <img class="brand-logo" src="./logo.png" alt="Logo du bot" />
+          </a>
+          <nav class="topbar-links" aria-label="Navigation principale">
+            <a href="#documentation">Documentation</a>
+            <a href="#integrations">Tutos</a>
+          </nav>
+        </div>
+      </header>
+
+      <main class="layout">
+        <aside class="toc" aria-label="Sommaire">
+          <div class="toc-box">
+            <p class="toc-title">Sommaire</p>
+            <a href="#ecrire">Comment ecrire une emote</a>
+            <a href="#fonctionne">Ce qui fonctionne</a>
+            <a href="#bloque">Ce qui bloque le bot</a>
+            <a href="#commandes">Commandes utiles</a>
+            <a href="#integrations">Tutos</a>
+          </div>
+        </aside>
+
+        <div class="content-column">
+          <article class="doc-panel" id="documentation" aria-labelledby="documentation-title">
+            <header class="doc-header">
+              <p class="eyebrow">Documentation</p>
+              <h1 id="documentation-title">Comment utiliser le bot</h1>
+            </header>
+
+            <section class="doc-section" id="ecrire" aria-labelledby="ecrire-title">
+              <h2 id="ecrire-title">Comment ecrire une emote</h2>
+              <p>Tu peux utiliser l'un de ces formats :</p>
+              <ul>
+                <li><code>/KEKW</code></li>
+                <li><code>/KEKW:1x</code></li>
+                <li><code>/KEKW:2x</code></li>
+                <li><code>/KEKW:3x</code></li>
+                <li><code>/KEKW:4x</code></li>
+              </ul>
+              <p>
+                Tu peux aussi ecrire du texte normal dans le meme message, par
+                exemple <code>Salut /KEKW</code>.
+              </p>
+            </section>
+
+            <section class="doc-section" id="fonctionne" aria-labelledby="fonctionne-title">
+              <h2 id="fonctionne-title">Ce qui fonctionne</h2>
+              <ul>
+                <li>tu envoies une emote seule, comme <code>/KEKW</code></li>
+                <li>tu choisis une taille, comme <code>/KEKW:4x</code></li>
+                <li>tu mets plusieurs emotes dans le meme message</li>
+                <li>tu ecris du texte et des emotes dans le meme message</li>
+              </ul>
+
+              <div class="example-list">
+                <div class="example-item">
+                  <code>/KEKW</code>
+                </div>
+                <div class="example-item">
+                  <code>Bonjour /KEKW</code>
+                </div>
+                <div class="example-item">
+                  <code>Salut /KEKW /OMEGALUL</code>
+                </div>
+                <div class="example-item">
+                  <code>/CATJAM:4x</code>
+                </div>
+              </div>
+            </section>
+
+            <section class="doc-section" id="bloque" aria-labelledby="bloque-title">
+              <h2 id="bloque-title">Ce qui bloque le bot</h2>
+              <div class="example-list">
+                <div class="example-item example-item-danger">
+                  <code>/EMOTE_INCONNUE</code>
+                </div>
+                <div class="example-item example-item-danger">
+                  <code>Salut /KEKW /EMOTE_INCONNUE</code>
+                </div>
+                <div class="example-item example-item-danger">
+                  <span>Message avec une image ou un fichier joint</span>
+                </div>
+              </div>
+            </section>
+
+            <section class="doc-section" id="commandes" aria-labelledby="commandes-title">
+              <h2 id="commandes-title">Commandes utiles</h2>
+
+              <div class="commands-grid">
+                <div class="command-block">
+                <div class="command-head">
+                  <h3>/emotes</h3>
+                  <button class="copy-button" type="button" data-copy="/emotes">
+                    Copier
+                  </button>
+                </div>
+                  <ul>
+                    <li>voir les emotes disponibles</li>
+                    <li>chercher une emote par son nom</li>
+                    <li>previsualiser une emote</li>
+                    <li>envoyer directement l'emote choisie</li>
+                  </ul>
+                </div>
+
+                <div class="command-block">
+                  <div class="command-head">
+                    <h3>/emotes &lt;nom&gt; &lt;taille&gt; &lt;texte&gt;</h3>
+                    <button
+                      class="copy-button"
+                      type="button"
+                      data-copy="/emotes nom:KEKW taille:4x texte:Salut"
+                    >
+                      Copier
+                    </button>
+                  </div>
+                  <ul>
+                    <li><code>nom</code> pour choisir l'emote</li>
+                    <li><code>taille</code> pour choisir sa taille</li>
+                    <li><code>texte</code> pour ajouter un message avec l'emote</li>
+                  </ul>
+                  <p>
+                    Exemple :
+                    <code>/emotes nom:KEKW taille:4x texte:Salut</code>
+                  </p>
+                </div>
+
+                <div class="command-block">
+                  <div class="command-head">
+                    <h3>/info</h3>
+                    <button class="copy-button" type="button" data-copy="/info message_id:1234567890">
+                      Copier
+                    </button>
+                  </div>
+                  <p>
+                    Cette commande sert a retrouver l'emote utilisee sur un message
+                    deja renvoye par le bot.
+                  </p>
+                  <p>Exemple : <code>/info message_id:1234567890</code></p>
+                </div>
+              </div>
+            </section>
+          </article>
+
+          <section class="doc-panel" id="integrations" aria-labelledby="integrations-title">
+            <header class="doc-header doc-header-small">
+              <p class="eyebrow">Tutos</p>
+              <h2 id="integrations-title">Zone pour ajouter des tutos</h2>
+            </header>
+
+            <div id="integration-list" class="integration-list" aria-live="polite"></div>
+          </section>
+        </div>
+      </main>
+    </div>
+
+    <template id="integration-card-template">
+      <article class="tutorial-item">
+        <div class="tutorial-media"></div>
+        <div class="tutorial-body">
+          <h3></h3>
+          <p></p>
+          <a class="integration-link" target="_blank" rel="noreferrer noopener">Ouvrir</a>
+        </div>
+      </article>
+    </template>
+
+    <script src="./user-guide.js"></script>
+  </body>
+</html>
