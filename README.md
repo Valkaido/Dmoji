@@ -11,6 +11,7 @@ Site statique utilise pour la documentation GitHub Pages de Dmoji.
 - `assets/logo_small.png` : favicon
 - `videos/emotes.mp4` : tuto video local pour la commande `/emotes`
 - `videos/emotes_parameters.mp4` : tuto video local pour `/emotes <nom> <taille> <texte>`
+- `videos/info.mp4` : tuto video local pour `/info <message_id>`
 
 ## Modifier les tutos
 

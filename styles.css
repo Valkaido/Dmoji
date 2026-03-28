@@ -308,7 +308,7 @@ code {
   margin-top: 14px;
 }
 
-.copy-button {
+.command-link {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -319,7 +319,7 @@ code {
   background: var(--surface);
   color: var(--text);
   font-weight: 700;
-  cursor: pointer;
+  text-decoration: none;
   transition:
     border-color 160ms ease,
     background-color 160ms ease,
@@ -327,17 +327,11 @@ code {
     transform 160ms ease;
 }
 
-.copy-button:hover,
-.copy-button:focus-visible {
+.command-link:hover,
+.command-link:focus-visible {
   background: #ffffff;
   border-color: rgba(183, 207, 254, 0.65);
   transform: translateY(-1px);
-}
-
-.copy-button.is-copied {
-  color: #ffffff;
-  background: var(--primary-dark);
-  border-color: var(--primary-dark);
 }
 
 .tutorial-item {

@@ -1,6 +1,7 @@
 // Modifie ce tableau pour ajouter ou retirer des tutoriels.
 const INTEGRATIONS = [
   {
+    id: "tutorial-emotes",
     type: "video",
     title: "Commande /emotes",
     description: "Cette video explique le fonctionnement de la commande /emotes sans parametres.",
@@ -8,11 +9,20 @@ const INTEGRATIONS = [
     url: "./videos/emotes.mp4"
   },
   {
+    id: "tutorial-emotes-parameters",
     type: "video",
     title: "/emotes <nom> <taille> <texte>",
     description: "Cette video explique le fonctionnement de la commande /emotes avec parametres.",
     src: "./videos/emotes_parameters.mp4",
     url: "./videos/emotes_parameters.mp4"
+  },
+  {
+    id: "tutorial-info",
+    type: "video",
+    title: "/info <message_id>",
+    description: "Cette video explique le fonctionnement de la commande /info.",
+    src: "./videos/info.mp4",
+    url: "./videos/info.mp4"
   },
   {
     type: "link",
@@ -62,10 +72,15 @@ function renderIntegrations() {
 
   INTEGRATIONS.forEach((item) => {
     const fragment = template.content.cloneNode(true);
+    const article = fragment.querySelector(".tutorial-item");
     const media = fragment.querySelector(".tutorial-media");
     const title = fragment.querySelector("h3");
     const description = fragment.querySelector("p");
     const link = fragment.querySelector(".integration-link");
+
+    if (item.id) {
+      article.id = item.id;
+    }
 
     title.textContent = item.title;
     description.textContent = item.description;
@@ -88,44 +103,6 @@ function renderIntegrations() {
   });
 }
 
-async function copyText(value, button) {
-  try {
-    if (navigator.clipboard?.writeText) {
-      await navigator.clipboard.writeText(value);
-    } else {
-      const textarea = document.createElement("textarea");
-      textarea.value = value;
-      textarea.setAttribute("readonly", "true");
-      textarea.style.position = "absolute";
-      textarea.style.left = "-9999px";
-      document.body.appendChild(textarea);
-      textarea.select();
-      document.execCommand("copy");
-      textarea.remove();
-    }
-
-    const previousLabel = button.textContent;
-    button.textContent = "Copie";
-    button.classList.add("is-copied");
-
-    window.setTimeout(() => {
-      button.textContent = previousLabel;
-      button.classList.remove("is-copied");
-    }, 1400);
-  } catch (error) {
-    console.error("Impossible de copier le texte.", error);
-  }
-}
-
-function bindCopyButtons() {
-  document.querySelectorAll("[data-copy]").forEach((button) => {
-    button.addEventListener("click", () => {
-      copyText(button.getAttribute("data-copy"), button);
-    });
-  });
-}
-
 document.addEventListener("DOMContentLoaded", () => {
   renderIntegrations();
-  bindCopyButtons();
 });
