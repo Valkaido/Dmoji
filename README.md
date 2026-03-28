@@ -1,12 +1,12 @@
-# Dmoji Docs
+# Dmoji Documentation Site
 
-Documentation statique pour la page GitHub Pages de Dmoji.
+Site statique utilise pour la documentation GitHub Pages de Dmoji.
 
 ## Fichiers principaux
 
 - `index.html` : structure de la page
-- `user-guide.css` : styles
-- `user-guide.js` : logique des tutos et boutons de copie
+- `styles.css` : styles du site
+- `app.js` : logique des tutoriels et boutons de copie
 - `assets/logo.png` : logo principal affiche dans l'en-tete
 - `assets/logo_small.png` : favicon
 - `videos/emotes.mp4` : tuto video local pour la commande `/emotes`
@@ -14,7 +14,7 @@ Documentation statique pour la page GitHub Pages de Dmoji.
 
 ## Modifier les tutos
 
-Les tutos sont declares dans `user-guide.js` via le tableau `INTEGRATIONS`.
+Les tutoriels sont declares dans `app.js` via le tableau `INTEGRATIONS`.
 
 Types utilises :
 

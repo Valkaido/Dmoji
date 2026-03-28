@@ -1,4 +1,4 @@
-// Modifie ce tableau pour ajouter ou retirer des tutos.
+// Modifie ce tableau pour ajouter ou retirer des tutoriels.
 const INTEGRATIONS = [
   {
     type: "video",
@@ -56,7 +56,7 @@ function renderIntegrations() {
   host.innerHTML = "";
 
   if (INTEGRATIONS.length === 0) {
-    host.appendChild(buildMediaPlaceholder("Aucune integration configuree pour le moment."));
+    host.appendChild(buildMediaPlaceholder("Aucune ressource configuree pour le moment."));
     return;
   }
 
@@ -79,7 +79,7 @@ function renderIntegrations() {
     if (item.type === "video" && item.src) {
       media.appendChild(buildVideoPlayer(item.src, item.title));
     } else if (item.type === "link") {
-      media.appendChild(buildMediaPlaceholder("Lien externe"));
+      media.appendChild(buildMediaPlaceholder("Ressource externe"));
     } else {
       media.appendChild(buildMediaPlaceholder("Ajoute un media ou un lien"));
     }
