@@ -8,10 +8,11 @@ const INTEGRATIONS = [
     url: "./videos/emotes.mp4"
   },
   {
-    type: "link",
-    title: "Autre tuto",
-    description: "Ajoute ici un deuxieme tuto quand tu auras une autre video.",
-    url: ""
+    type: "video",
+    title: "/emotes <nom> <taille> <texte>",
+    description: "Cette video explique le fonctionnement de la commande /emotes avec parametres.",
+    src: "./videos/emotes_parameters.mp4",
+    url: "./videos/emotes_parameters.mp4"
   },
   {
     type: "link",
@@ -77,6 +78,8 @@ function renderIntegrations() {
 
     if (item.type === "video" && item.src) {
       media.appendChild(buildVideoPlayer(item.src, item.title));
+    } else if (item.type === "link") {
+      media.appendChild(buildMediaPlaceholder("Lien externe"));
     } else {
       media.appendChild(buildMediaPlaceholder("Ajoute un media ou un lien"));
     }
