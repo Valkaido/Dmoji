@@ -1,20 +1,19 @@
 // Ajoute, supprime ou modifie les blocs ci-dessous pour gérer tes vidéos et liens.
 const integrations = [
   {
-    type: "youtube",
+    type: "video",
     title: "Commande /emotes",
     description:
       "Cette video explique le fonctionnement de la commande /emotes sans parametres.",
-    videoId: "dHz2eRYCTs4",
-    url: "https://www.youtube.com/watch?v=dHz2eRYCTs4"
+    src: "./videos/emotes.mp4",
+    url: "./videos/emotes.mp4"
   },
   {
-    type: "youtube",
+    type: "link",
     title: "Autre tuto",
     description:
-      "Ajoute ici un deuxieme tuto YouTube quand tu auras l'autre video.",
-    videoId: "dQw4w9WgXcQ",
-    url: "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+      "Ajoute ici un deuxieme tuto quand tu auras une autre video.",
+    url: ""
   },
   {
     type: "link",
@@ -25,16 +24,19 @@ const integrations = [
   }
 ];
 
-function buildYouTubeEmbed(videoId, title) {
-  const iframe = document.createElement("iframe");
-  iframe.src = `https://www.youtube.com/embed/${videoId}`;
-  iframe.title = title;
-  iframe.loading = "lazy";
-  iframe.allow =
-    "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
-  iframe.referrerPolicy = "strict-origin-when-cross-origin";
-  iframe.allowFullscreen = true;
-  return iframe;
+function buildVideoPlayer(src, title) {
+  const video = document.createElement("video");
+  const source = document.createElement("source");
+
+  video.controls = true;
+  video.preload = "metadata";
+  video.title = title;
+
+  source.src = src;
+  source.type = "video/mp4";
+
+  video.appendChild(source);
+  return video;
 }
 
 function buildPlaceholder(label) {
@@ -73,8 +75,8 @@ function renderIntegrations() {
       link.hidden = true;
     }
 
-    if (item.type === "youtube" && item.videoId) {
-      media.appendChild(buildYouTubeEmbed(item.videoId, item.title));
+    if (item.type === "video" && item.src) {
+      media.appendChild(buildVideoPlayer(item.src, item.title));
     } else {
       media.appendChild(buildPlaceholder("Ajoute un média ou un lien"));
     }
