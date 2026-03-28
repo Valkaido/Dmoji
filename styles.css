@@ -271,6 +271,10 @@ code {
   margin-top: 14px;
 }
 
+.example-list-split {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
 .commands-grid {
   display: grid;
   gap: 16px;
@@ -311,7 +315,7 @@ code {
 }
 
 .example-media-large {
-  width: min(100%, 360px);
+  width: min(100%, 390px);
 }
 
 .command-head {
@@ -398,6 +402,10 @@ code {
 
   .toc {
     position: static;
+  }
+
+  .example-list-split {
+    grid-template-columns: 1fr;
   }
 
 }
