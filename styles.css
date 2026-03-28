@@ -271,13 +271,6 @@ code {
   margin-top: 14px;
 }
 
-.example-grid-quad {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 12px;
-  margin-top: 14px;
-}
-
 .commands-grid {
   display: grid;
   gap: 16px;
@@ -315,6 +308,10 @@ code {
   border: 1px solid var(--line);
   background: var(--surface);
   justify-self: start;
+}
+
+.example-media-large {
+  width: min(100%, 360px);
 }
 
 .command-head {
@@ -403,9 +400,6 @@ code {
     position: static;
   }
 
-  .example-grid-quad {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
 }
 
 @media (max-width: 640px) {
@@ -424,10 +418,6 @@ code {
 
   .doc-panel {
     padding: 20px;
-  }
-
-  .example-grid-quad {
-    grid-template-columns: 1fr;
   }
 
   .command-video {
