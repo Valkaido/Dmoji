@@ -18,15 +18,9 @@
           <a class="brand" href="#top" aria-label="Retour en haut">
             <img class="brand-logo" src="./assets/logo.png" alt="Logo du bot" />
           </a>
-          <div class="header-actions">
-            <nav class="topbar-links" aria-label="Navigation principale">
-              <a href="#documentation">Documentation</a>
-              <a href="#integrations">Tutoriels</a>
-            </nav>
-            <button class="theme-toggle" type="button" id="theme-toggle" aria-pressed="false">
-              Theme sombre
-            </button>
-          </div>
+          <nav class="topbar-links" aria-label="Navigation principale">
+            <a href="#documentation">Documentation</a>
+          </nav>
         </div>
       </header>
 
@@ -37,8 +31,7 @@
             <a href="#ecrire">Comment &#233;crire une &#233;mote</a>
             <a href="#fonctionne">Ce qui fonctionne</a>
             <a href="#bloque">Ce qui bloque le bot</a>
-            <a href="#commandes">Commandes utiles</a>
-            <a href="#integrations">Tutoriels</a>
+            <a href="#commandes">Commandes</a>
           </div>
         </aside>
 
@@ -183,13 +176,12 @@
             </section>
 
             <section class="doc-section" id="commandes" aria-labelledby="commandes-title">
-              <h2 id="commandes-title">Commandes utiles</h2>
+              <h2 id="commandes-title">Commandes</h2>
 
               <div class="commands-grid">
                 <article class="command-block">
                   <div class="command-head">
                     <h3>/emotes</h3>
-                    <a class="command-link" href="#tutorial-emotes">Voir le tuto</a>
                   </div>
                   <ul>
                     <li>voir les &#233;motes disponibles</li>
@@ -197,12 +189,14 @@
                     <li>pr&#233;visualiser une &#233;mote</li>
                     <li>envoyer directement l'&#233;mote choisie</li>
                   </ul>
+                  <video class="command-video" controls preload="metadata" playsinline>
+                    <source src="./videos/emotes.mp4" type="video/mp4" />
+                  </video>
                 </article>
 
                 <article class="command-block">
                   <div class="command-head">
                     <h3>/emotes &lt;nom&gt; &lt;taille&gt; &lt;texte&gt;</h3>
-                    <a class="command-link" href="#tutorial-emotes-parameters">Voir le tuto</a>
                   </div>
                   <ul>
                     <li><code>nom</code> pour choisir l'&#233;mote</li>
@@ -213,45 +207,29 @@
                     Exemple :
                     <code>/emotes nom:KEKW taille:4x texte:Salut</code>
                   </p>
+                  <video class="command-video" controls preload="metadata" playsinline>
+                    <source src="./videos/emotes_parameters.mp4" type="video/mp4" />
+                  </video>
                 </article>
 
                 <article class="command-block">
                   <div class="command-head">
                     <h3>/info &lt;message_id&gt;</h3>
-                    <a class="command-link" href="#tutorial-info">Voir le tuto</a>
                   </div>
                   <p>
                     Cette commande sert &#224; retrouver l'&#233;mote utilis&#233;e
                     sur un message d&#233;j&#224; renvoy&#233; par le bot.
                   </p>
                   <p>Exemple : <code>/info message_id:1234567890</code></p>
+                  <video class="command-video" controls preload="metadata" playsinline>
+                    <source src="./videos/info.mp4" type="video/mp4" />
+                  </video>
                 </article>
               </div>
             </section>
           </article>
-
-          <section class="doc-panel" id="integrations" aria-label="Tutoriels">
-            <header class="doc-header doc-header-small">
-              <p class="eyebrow">Tutoriels</p>
-            </header>
-
-            <div id="integration-list" class="integration-list" aria-live="polite"></div>
-          </section>
         </div>
       </main>
     </div>
-
-    <template id="integration-card-template">
-      <article class="tutorial-item">
-        <div class="tutorial-media"></div>
-        <div class="tutorial-body">
-          <h3></h3>
-          <p></p>
-          <a class="integration-link" target="_blank" rel="noreferrer noopener">Ouvrir</a>
-        </div>
-      </article>
-    </template>
-
-    <script src="./app.js"></script>
   </body>
 </html>
