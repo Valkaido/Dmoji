@@ -276,8 +276,7 @@ code {
 }
 
 .commands-grid {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
   gap: 16px;
   margin-top: 14px;
 }
@@ -333,7 +332,7 @@ code {
 }
 
 .commands-grid .command-block {
-  flex: 1 1 280px;
+  width: 100%;
 }
 
 @keyframes fade-up {
