@@ -15,7 +15,7 @@
     <header class="site-header">
       <div class="header-inner">
         <a class="brand" href="./">
-          <span class="brand-title"><img class="brand-icon" src="assets/logo_small.png" alt="" />Dmoji</span>
+          <span class="brand-title"><img class="brand-mark" src="assets/logo.png" alt="Dmoji" /></span>
         </a>
         <div class="header-menu">
           <button class="header-menu-toggle" type="button" aria-expanded="false" aria-controls="header-nav">Menu</button>
@@ -23,6 +23,7 @@
             <a href="#quick-start">Démarrage rapide</a>
             <a href="#commands">Commandes</a>
             <a href="#how-it-works">Fonctionnement</a>
+            <a href="#troubleshooting">Dépannage</a>
             <a href="#faq">FAQ</a>
             <a href="patch-notes/">Notes de mise à jour</a>
           </nav>
@@ -33,10 +34,15 @@
     <main id="content" class="page">
       <section class="hero">
         <div class="container hero-inner">
-          <img class="hero-mark" src="assets/logo.png" alt="Logo de Dmoji" />
           <h1>
             <span class="hero-line">Vos émotes,</span>
             <span class="hero-line">sans couper la conversation.</span>
+            <span class="hero-line hero-line-emote" aria-hidden="true">
+              <span class="hero-emote-stage">
+                <span class="hero-emote-code">/ICANT</span>
+                <img class="hero-emote-image" src="assets/ICANT-2x.webp" alt="" />
+              </span>
+            </span>
           </h1>
           <p class="hero-copy">
             Dmoji repère les codes d&apos;émote comme <code>/KEKW</code>, vérifie qu&apos;ils existent bien dans la liste
@@ -44,7 +50,7 @@
             le texte et les pièces jointes prises en charge.
           </p>
           <div class="hero-actions">
-            <a class="button button-primary" href="#quick-start">Commencer la configuration</a>
+            <a class="button button-primary" href="#quick-start">Invitez-le sur votre serveur</a>
             <a class="button button-secondary" href="#commands">Voir les commandes</a>
           </div>
           <figure class="hero-preview" aria-labelledby="preview-title">
@@ -86,6 +92,9 @@
                 Ajoutez le bot au serveur où vous voulez utiliser les émotes et terminez l&apos;invitation avec les
                 autorisations nécessaires pour qu&apos;il puisse renvoyer correctement les messages.
               </p>
+              <div class="card-action">
+                <a class="button button-primary button-install" href="https://discord.com/oauth2/authorize?client_id=1487092655421784104">Lien d&apos;installation Discord</a>
+              </div>
             </article>
             <article class="card">
               <h3>2. Vérifier les émotes disponibles</h3>
@@ -181,13 +190,6 @@
               cette étape.
             </li>
           </ol>
-          <div class="callout callout-note">
-            <p>
-              <strong>Remarque</strong>
-              Dmoji ne publie pas d&apos;erreur visible quand une tentative échoue. Cela garde les salons lisibles et
-              évite de transformer une simple faute de frappe en spam du bot.
-            </p>
-          </div>
         </div>
       </section>
 
@@ -262,7 +264,7 @@
               <p>Non. Le sélecteur est pensé pour accélérer l&apos;usage de chaque personne, donc les favoris et les éléments récents restent personnels.</p>
             </details>
             <details class="faq-item">
-              <summary>Les noms spéciaux comme <code>/D:</code> fonctionnent-ils ?</summary>
+              <summary>Les noms spéciaux comme /D: fonctionnent-ils ?</summary>
               <p>Oui, à condition que la liste d&apos;émotes configurée contienne exactement ce nom et que le code écrit corresponde parfaitement.</p>
             </details>
           </div>

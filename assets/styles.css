@@ -147,6 +147,9 @@ a.button {
 }
 
 .brand {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
   color: var(--text-primary);
   font-size: 16px;
   font-weight: 600;
@@ -156,18 +159,19 @@ a.button {
 }
 
 .brand-title {
-  color: var(--text-primary);
-  font-weight: 600;
-  display: inline-flex;
+  display: flex;
   align-items: center;
-  gap: 10px;
-  font-size: 1.2em;
-  letter-spacing: -0.02em;
+  justify-content: center;
+  min-height: 44px;
+  line-height: 1;
 }
 
-.brand-icon {
-  width: 34px;
-  height: 34px;
+.brand-mark {
+  display: block;
+  flex-shrink: 0;
+  height: 44px;
+  width: auto;
+  max-width: min(220px, 28vw);
   object-fit: contain;
 }
 
@@ -180,9 +184,14 @@ a.button {
 }
 
 .header-nav a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
   color: var(--text-secondary);
   font-size: 14px;
   font-weight: 500;
+  line-height: 1.2;
   text-decoration: none;
   padding: 10px 12px;
   border-radius: var(--radius-md);
@@ -273,6 +282,92 @@ a.button {
   max-width: 100%;
   white-space: normal;
   text-align: center;
+}
+
+.hero-line-emote {
+  margin-top: 16px;
+}
+
+.hero-emote-stage {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: min(340px, 78vw);
+  min-height: clamp(92px, 10vw, 116px);
+}
+
+.hero-emote-code,
+.hero-emote-image {
+  grid-area: 1 / 1;
+}
+
+.hero-emote-code {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: clamp(72px, 8vw, 88px);
+  padding: 0 18px;
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.68);
+  border: 1px solid rgba(188, 199, 214, 0.9);
+  box-shadow: 0 18px 44px rgba(79, 107, 255, 0.12);
+  color: #0e1726;
+  font-family: "JetBrains Mono", monospace;
+  font-size: clamp(26px, 4vw, 42px);
+  font-weight: 400;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 220ms ease, transform 220ms ease;
+}
+
+.hero-emote-code::after {
+  content: "";
+  width: 0.08em;
+  height: 0.92em;
+  margin-left: 0.12em;
+  border-radius: 4px;
+  background: currentColor;
+  animation: hero-caret-blink 0.95s steps(1, end) infinite;
+}
+
+.hero-emote-code.is-fading {
+  opacity: 0.18;
+  transform: translateY(-4px);
+}
+
+.hero-emote-image {
+  position: absolute;
+  inset: 50% auto auto 50%;
+  display: block;
+  width: auto;
+  height: clamp(72px, 8vw, 96px);
+  max-width: min(140px, 30vw);
+  object-fit: contain;
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0.9);
+  filter: drop-shadow(0 14px 24px rgba(15, 23, 42, 0.18));
+  transition: opacity 240ms ease, transform 240ms ease;
+}
+
+.hero-emote-image.is-visible {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+@keyframes hero-caret-blink {
+  0%,
+  45% {
+    opacity: 1;
+  }
+
+  46%,
+  100% {
+    opacity: 0;
+  }
 }
 
 .page-title {
@@ -494,6 +589,21 @@ a.button {
   color: var(--text-secondary);
 }
 
+.card-action {
+  margin-top: 16px;
+}
+
+.button-install {
+  width: 100%;
+  min-height: 48px;
+  font-weight: 700;
+  box-shadow: 0 10px 24px rgba(79, 107, 255, 0.22);
+}
+
+.button-install:hover {
+  box-shadow: 0 14px 30px rgba(63, 92, 245, 0.28);
+}
+
 .card ol,
 .card ul {
   margin: 12px 0 0;
@@ -675,9 +785,16 @@ td {
   width: 100%;
 }
 
-.troubleshooting-list,
 .entry-list {
   text-align: left;
+}
+
+.troubleshooting-list {
+  text-align: center;
+}
+
+.faq-list {
+  text-align: center;
 }
 
 .troubleshooting-item,
@@ -714,17 +831,21 @@ td {
 }
 
 .troubleshooting-item {
-  padding-right: 4px;
+  padding-right: 0;
 }
 
 .troubleshooting-item summary {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   list-style: none;
   cursor: pointer;
   font-size: 20px;
   line-height: 1.35;
   font-weight: 600;
-  padding-right: 28px;
+  padding: 0 36px;
   position: relative;
+  text-align: center;
 }
 
 .troubleshooting-item summary::-webkit-details-marker {
@@ -735,10 +856,11 @@ td {
   content: "+";
   position: absolute;
   right: 0;
-  top: 0;
+  top: 50%;
   color: var(--text-subtle);
   font-size: 22px;
   line-height: 1;
+  transform: translateY(-50%);
 }
 
 .troubleshooting-item[open] summary::after {
@@ -758,6 +880,9 @@ td {
 }
 
 .faq-item summary {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   list-style: none;
   cursor: pointer;
   font-size: 18px;
@@ -765,7 +890,9 @@ td {
   font-weight: 600;
   padding-right: 28px;
   position: relative;
+  text-align: center;
 }
+
 
 .faq-item summary::-webkit-details-marker {
   display: none;
@@ -787,6 +914,16 @@ td {
 
 .faq-item p {
   max-width: var(--max-reading);
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
+}
+
+.troubleshooting-item p {
+  max-width: var(--max-reading);
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
 }
 
 .prose-page {
@@ -913,6 +1050,11 @@ td {
     justify-content: flex-start;
   }
 
+  .brand-mark {
+    height: 40px;
+    max-width: min(190px, 48vw);
+  }
+
   .header-menu {
     position: relative;
     flex-shrink: 0;
@@ -986,6 +1128,39 @@ td {
   .hero-line {
     white-space: normal;
     width: auto;
+  }
+
+  .hero-line-emote {
+    margin-top: 12px;
+  }
+
+  .hero-emote-stage {
+    min-width: min(280px, 84vw);
+    min-height: 88px;
+  }
+
+  .hero-emote-code {
+    min-height: 64px;
+    padding: 0 16px;
+    font-size: clamp(22px, 7vw, 32px);
+  }
+
+  .hero-emote-image {
+    height: clamp(60px, 16vw, 82px);
+    max-width: min(116px, 28vw);
+  }
+
+  .troubleshooting-item summary,
+  .faq-item summary {
+    display: block;
+    padding-left: 18px;
+    padding-right: 40px;
+    text-align: center;
+  }
+
+  .faq-item summary::after {
+    top: 50%;
+    transform: translateY(-50%);
   }
 
   .hero-mark {
