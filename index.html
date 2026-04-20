@@ -22,9 +22,6 @@
           <nav id="header-nav" class="header-nav" aria-label="Navigation principale">
             <a href="#quick-start">Démarrage rapide</a>
             <a href="#commands">Commandes</a>
-            <a href="#how-it-works">Fonctionnement</a>
-            <a href="#troubleshooting">Dépannage</a>
-            <a href="#faq">FAQ</a>
             <a href="patch-notes/">Notes de mise à jour</a>
           </nav>
         </div>
@@ -64,7 +61,7 @@
                 <img class="preview-image" src="assets/you_type.png" alt="Exemple d&apos;un message saisi avec la syntaxe d&apos;émote de Dmoji." />
               </div>
               <div class="preview-panel">
-                <h3>Dmoji renvoie le message proprement</h3>
+                <h3>Dmoji renvoie</h3>
                 <img class="preview-image" src="assets/response.png" alt="Exemple du message renvoyé par Dmoji dans Discord." />
               </div>
               <div class="preview-panel">
@@ -99,15 +96,15 @@
             <article class="card">
               <h3>2. Vérifier les émotes disponibles</h3>
               <p>
-                Lancez <code>/emotes</code> dans le salon cible. Le sélecteur affiche la liste actuelle des émotes, la
+                Lancez <code>/emotes</code> dans un salon. Une liste s'affichera avec des émotes, la
                 recherche, vos derniers choix et les favoris déjà enregistrés sur votre compte.
               </p>
             </article>
             <article class="card">
               <h3>3. Envoyer un message de test</h3>
               <p>
-                Publiez un message Discord normal contenant un ou plusieurs codes d&apos;émote. Si tous les codes sont
-                valides, Dmoji renvoie immédiatement le message avec votre profil visible dans ce salon.
+                Envoyer un message contenant une ou plusieurs d&apos;émotes. Si tous les d&apos;émotes sont
+                valides, Dmoji renvoie immédiatement le message.
               </p>
             </article>
           </div>
@@ -158,119 +155,6 @@
           </div>
         </div>
       </section>
-
-      <section id="how-it-works" class="section">
-        <div class="container reading">
-          <div class="section-header">
-            <h2>Fonctionnement</h2>
-            <p class="section-intro">
-              Dmoji est conçu pour rester discret. L&apos;utilisateur écrit un seul message, le bot le vérifie, puis le
-              salon reçoit une nouvelle version uniquement si tout peut être traité correctement.
-            </p>
-          </div>
-          <ol class="flow-list">
-            <li>
-              <strong>Dmoji cherche les codes d&apos;émote dans le message.</strong>
-              Ces codes commencent par <code>/</code> et peuvent inclure une taille, par exemple <code>:2x</code> ou
-              <code>:4x</code>.
-            </li>
-            <li>
-              <strong>Chaque code doit être reconnu avant l&apos;envoi.</strong>
-              Si un seul nom d&apos;émote est inconnu ou mal écrit, le bot ne renvoie rien afin d&apos;éviter un résultat
-              incomplet.
-            </li>
-            <li>
-              <strong>Le message d&apos;origine est supprimé puis remplacé par une nouvelle version.</strong>
-              Le message renvoyé garde le texte autour des émotes, reprend le nom affiché de l&apos;auteur et s&apos;adapte
-              à ce que Discord peut afficher à cet endroit.
-            </li>
-            <li>
-              <strong>Les pièces jointes sont conservées si elles peuvent encore être récupérées et renvoyées.</strong>
-              Les fichiers trop volumineux, les liens expirés ou un accès restreint aux pièces jointes peuvent bloquer
-              cette étape.
-            </li>
-          </ol>
-        </div>
-      </section>
-
-      <section id="troubleshooting" class="section">
-        <div class="container reading">
-          <div class="section-header">
-            <h2>Dépannage</h2>
-            <p class="section-intro">
-              La plupart des échecs viennent de trois causes : un code d&apos;émote inconnu, une autorisation manquante
-              ou une pièce jointe que Discord ne laisse pas renvoyer. Vérifiez les cas ci-dessous avant d&apos;aller plus
-              loin.
-            </p>
-          </div>
-          <div class="troubleshooting-list">
-            <details class="troubleshooting-item">
-              <summary>Le message ne change pas après l&apos;envoi.</summary>
-              <p><strong>Problème</strong> Dmoji ne touche jamais au message.</p>
-              <p><strong>Cause probable</strong> Le message ne contient pas de code d&apos;émote valide ou le bot ne peut pas lire le salon.</p>
-              <p><strong>Correction</strong> Vérifiez que le code commence bien par <code>/</code>, correspond exactement à une émote existante et que le bot peut voir le salon.</p>
-            </details>
-            <details class="troubleshooting-item">
-              <summary>Le message d&apos;origine disparaît, mais rien n&apos;est republié.</summary>
-              <p><strong>Problème</strong> L&apos;étape de réécriture échoue après la suppression.</p>
-              <p><strong>Cause probable</strong> Il manque au bot les permissions Envoyer des messages, gérer l&apos;envoi au bon nom ou l&apos;accès nécessaire aux pièces jointes.</p>
-              <p><strong>Correction</strong> Revérifiez les permissions du salon, puis refaites un test avec un simple message texte plus émote, sans fichier joint.</p>
-            </details>
-            <details class="troubleshooting-item">
-              <summary>Une seule émote invalide bloque tout le message.</summary>
-              <p><strong>Problème</strong> Rien n&apos;est republié alors qu&apos;une ou plusieurs émotes semblent correctes.</p>
-              <p><strong>Cause probable</strong> Dmoji exige que chaque code du message soit reconnu avant de renvoyer la nouvelle version.</p>
-              <p><strong>Correction</strong> Supprimez le code inconnu, testez chaque nom d&apos;émote séparément puis renvoyez le message une fois que tout est valide.</p>
-            </details>
-            <details class="troubleshooting-item">
-              <summary>Les pièces jointes manquent dans le message republié.</summary>
-              <p><strong>Problème</strong> Le texte et les émotes sont republiés, mais pas les fichiers.</p>
-              <p><strong>Cause probable</strong> La pièce jointe source est trop volumineuse, expirée ou inaccessible au moment du renvoi.</p>
-              <p><strong>Correction</strong> Recommencez avec un fichier plus léger, laissez les permissions d&apos;accès aux fichiers ouvertes et vérifiez que le bot peut téléverser des pièces jointes.</p>
-            </details>
-            <details class="troubleshooting-item">
-              <summary>Le bot fonctionne dans les salons, mais pas dans les fils ou les forums.</summary>
-              <p><strong>Problème</strong> Le bot échoue uniquement dans les fils ou les forums.</p>
-              <p><strong>Cause probable</strong> Le salon principal n&apos;accorde pas au rôle du bot les permissions nécessaires dans les fils ou pour renvoyer correctement les messages.</p>
-              <p><strong>Correction</strong> Vérifiez le salon parent, pas seulement le fil, et assurez-vous que l&apos;option Envoyer des messages dans les fils est activée.</p>
-            </details>
-          </div>
-        </div>
-      </section>
-
-      <section id="faq" class="section">
-        <div class="container reading">
-          <div class="section-header">
-            <h2>FAQ</h2>
-            <p class="section-intro">
-              Voici les questions qui reviennent le plus souvent après le premier test concluant.
-            </p>
-          </div>
-          <div class="faq-list">
-            <details class="faq-item">
-              <summary>Dmoji publie-t-il des erreurs visibles lorsqu&apos;un code est invalide ?</summary>
-              <p>Non. Les réécritures échouées restent silencieuses afin qu&apos;une émote mal saisie n&apos;ajoute pas de bruit inutile dans le salon.</p>
-            </details>
-            <details class="faq-item">
-              <summary>Puis-je garder du texte normal autour d&apos;une émote ?</summary>
-              <p>Oui. Dmoji conserve le texte avant, entre et après les codes valides tant que le message complet est reconnu correctement.</p>
-            </details>
-            <details class="faq-item">
-              <summary>Les émotes 7TV peuvent-elles se comporter exactement comme les émojis natifs de Discord ?</summary>
-              <p>Non. Dmoji réécrit le message pour simuler le résultat, mais les émotes externes ne sont pas insérées comme de vrais émojis natifs dans le message d&apos;origine.</p>
-            </details>
-            <details class="faq-item">
-              <summary>Les favoris et les émotes récentes sont-ils partagés avec tout le serveur ?</summary>
-              <p>Non. Le sélecteur est pensé pour accélérer l&apos;usage de chaque personne, donc les favoris et les éléments récents restent personnels.</p>
-            </details>
-            <details class="faq-item">
-              <summary>Les noms spéciaux comme /D: fonctionnent-ils ?</summary>
-              <p>Oui, à condition que la liste d&apos;émotes configurée contienne exactement ce nom et que le code écrit corresponde parfaitement.</p>
-            </details>
-          </div>
-        </div>
-      </section>
-    </main>
 
     <footer class="site-footer">
       <div class="footer-inner">
